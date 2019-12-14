@@ -1,0 +1,59 @@
+<html>
+<head>
+<script type="text/javascript">
+function loadXMLDoc()
+{
+	var xmlhttp;
+	if (window.XMLHttpRequest)
+	{
+		xmlhttp=new XMLHttpRequest();
+	}
+	else
+	{
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+	xmlhttp.onreadystatechange=function()
+	{
+		if (xmlhttp.status==200)
+		{
+			document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+		}
+	}
+	xmlhttp.open("GET","http://94.191.87.159:10000?value="+document.getElementById("content").value,true);
+	xmlhttp.send();
+}
+</script>
+<style type="text/css">
+        table
+        {
+            border-collapse: collapse;
+            text-align: center;
+        }
+        table td, table th
+        {
+            border: 1px solid #cad9ea;
+            color: #666;
+            height: 30px;
+        }
+        table thead th
+        {
+            background-color: #CCE8EB;
+            width: 100px;
+        }
+        table tr:nth-child(odd)
+        {
+            background: #fff;
+        }
+        table tr:nth-child(even)
+        {
+            background: #F5FAFA;
+        }
+    </style>
+
+</head>
+<body>
+<input id="content" placeholder="资源名"></input>
+<button type="button" onclick="loadXMLDoc()">搜索</button>
+<div id="myDiv">result</h2></div>
+</body>
+</html>
